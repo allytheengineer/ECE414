@@ -1,50 +1,57 @@
 #include <inttypes.h>
 
 
-enum B_States {B_N, B_MP, B_P, B_MNP} B_State;
-
+enum R_States {B_N, B_MP, B_P, B_MNP} R_State;
+extern int Rout;
 void buttondebounceR(uint8_t press){
-    int btn= press&0x1D;
+    uint8_t btn;
+    if((press&0x2)==0){
+     btn=1;   
+    }
+    else {btn=0;
+    }
     int btnp;
-switch (B_State){
+switch (R_State){
 
 case B_N:
-	if(!btn==0x1D){
-	B_State=B_N;
+	if(!btn){
+        Rout=0;
+	R_State=B_N;
 }
-else if (btn==0x1D){
-B_State=B_MP;
+    else{
+    R_State=B_MP;
 }
-break;
+    break;
 case B_MP:
-	if(!btn==0x1D){
-	B_State=B_N;
+	if(!btn){
+	R_State=B_N;
 }
-	else if(btn==0x1D){
-     btnp=1;
-	B_State=B_P;
+	else{
+     Rout=1;
+	R_State=B_P;
 }
 	break;
 
 
 case B_P:
-	if(!btn==0x1D){
-	B_State=B_MNP;
+	if(!btn){
+	R_State=B_MNP;
 }
-	else if(btn==0x1D){
-	B_State=B_P;
+	else {
+	R_State=B_P;
 }
 break;
 case B_MNP:
-	if(!btn==0x1D){
-	B_State=B_N;
+	if(!btn){
+       
+	R_State=B_N;
 }
-	else if(btn==0x1D){
-	B_State=B_P;
+	else {
+	R_State=B_P;
 }
 break;
 default:
-	B_State = B_N;
+	R_State = B_N;
 	break;
 }
 }

@@ -5,35 +5,36 @@
 
 static enum PONGLED_States
 {PONGLED_SMStart, PONGLED_Init, PONGLED_Wait, PONGLED_RightBounce, PONGLED_LeftBounce, PONGLED_MissLeft, PONGLED_MissRight} PONGLED_State;
+extern int speed;
+static uint16_t outval=0x10;
 
-static uint8_t outval;
-
-void tickFct_PONGLED(int right, int left, int s, int c)
+void tickFct_PONGLED(int Rout,int Lout, int c)
 {
-    int speed=s;
+    
     int count=c;
-    int rbtn = right;
-    int lbtn = left;
+    int rbtn = Rout;
+    int lbtn = Lout;
 	switch (PONGLED_State) {
 		case PONGLED_SMStart: //starts the fsm
 			PONGLED_State = PONGLED_Init;
 			break;
 		case PONGLED_Init: //initial state
-			PONGLED_State = PONGLED_RightBounce;
+			PONGLED_State = PONGLED_Wait;
 			break;
 		case PONGLED_Wait: //waiting for someone to start
-			if(lbtn==0&&rbtn==1){
+			
 				PONGLED_State = PONGLED_RightBounce;
-			}
-			if(lbtn==1&&rbtn==0){
-				PONGLED_State = PONGLED_LeftBounce;
-			}
+			
+			
 			break;
 		case PONGLED_RightBounce: //moves ?ball? right
-			if(outval!=0x01 && lbtn==1 && rbtn==1){ //Still going right
+			if(outval!=0x01 && lbtn==2 && rbtn==1){ //Still going right
 				PONGLED_State = PONGLED_RightBounce;
 			}
             if(outval==0x01 && lbtn==0 && rbtn==1){ //Change to moving left
+                if(speed>100){
+                speed = speed-25;
+                }
 				PONGLED_State = PONGLED_LeftBounce;
 			}
 			if(outval!=0x01 && lbtn==0 && rbtn==1){ //Swing Missed
@@ -41,13 +42,16 @@ void tickFct_PONGLED(int right, int left, int s, int c)
 			}
 			break;
 case PONGLED_LeftBounce: //moves ?ball? left
-			if(outval!=0x80 && lbtn==1 && rbtn==1){ //Still going left
+			if(outval!=0x100 && lbtn==2 && rbtn==1){ //Still going left
 				PONGLED_State = PONGLED_LeftBounce;
 			}
-            if(outval==0x80 && lbtn==1 && rbtn==0){ //Change to moving right
+            if(outval==0x100 && lbtn==2 && rbtn==0){ //Change to moving right
+                if(speed>100){
+                speed = speed-25;
+                }
 				PONGLED_State = PONGLED_RightBounce;
 			}
-			if(outval!=0x80 && lbtn==1 && rbtn==0){ //Swing Missed
+			if(outval!=0x100 && lbtn==2 && rbtn==0){ //Swing Missed
 				PONGLED_State = PONGLED_MissLeft;
 			}
 			break;
@@ -77,22 +81,30 @@ case PONGLED_MissRight: //left player missed the ?ball?
 
 	switch (PONGLED_State) {
 		case PONGLED_Init:
-			outval = 0x00; 
+			
             count = 0;
 			portb_out_write(outval);
 			break;
 		case PONGLED_Wait:
-			outval = 0x00;
+			
             portb_out_write(outval);
             break; 
 		case PONGLED_RightBounce:
+            if(outval==0x80){
+            outval=outval>>2;    
+            }
+            else{
 			outval = outval >> 1; //Shift light right
-			speed = speed-50;
+			}
 			portb_out_write(outval);
 			break;
 		case PONGLED_LeftBounce:
+            if(outval==0x20){
+            outval=outval<<2;    
+            }
+            else{
 			outval = outval << 1; //Shift light left
-			speed = speed-50;
+			}
 			portb_out_write(outval);
 			break;
 		case PONGLED_MissLeft:
@@ -100,7 +112,7 @@ case PONGLED_MissRight: //left player missed the ?ball?
 			portb_out_write(outval);
 			break;
         case PONGLED_MissRight:
-			outval = 0x80; //Flash Left Light
+			outval = 0x100; //Flash Left Light
 			portb_out_write(outval);
 			break;
 		default:
