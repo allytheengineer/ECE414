@@ -21,7 +21,7 @@ int main() {
 	ta1 = timer1_read();
 	while (1) {
 		ta2 = timer1_read();
-        if (timer1_elapsed_ms(ta1, ta2) > 100) {
+        if (timer1_elapsed_ms(ta1, ta2) > speed) {
             buttondebounceR(porta_in_read());
            buttondebounceL(porta_in_read());
             tickFct_PONGLED(Rout,Lout);
