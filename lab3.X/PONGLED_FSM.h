@@ -15,7 +15,7 @@ extern "C" {
 #include <xc.h>
 #include <inttypes.h>
 
-extern void tickFct_PONGLED(int Rout,int Lout, int c);
+extern void tickFct_PONGLED(int Rout,int Lout);
 
 #ifdef	__cplusplus
 }
