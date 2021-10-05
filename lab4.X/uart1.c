@@ -1,23 +1,25 @@
 #include <xc.h>
 #include <plib.h>
 #include <inttypes.h>
-
-#define SYSCLK 40000000L
-#define Baud2BRG(baudrate)((SYSCLK/(16*baudrate))-1);
+#include "uart1.h"
 
 //  initialize the UART to communicate using
 //eight data bits and no parity bits at a specific baud rate
 void uart1_init(uint32_t baudrate){
-    U2STA = 0x1400;
-    U2BRG = Baud2BRG(baudrate);
-    int actualBaudrate = SYSCLK /(16*(U2BRG+1));
-    return actualBaudrate;
+  uint32_t newrate = (0x02625A00/(0x00000010*baudrate))-1;
+  ANSELA = 0x000;
+  PPSInput(3, U1RX, RPA2);
+  PPSOutput(1, RPA0, U1TX);
+  OpenUART1(UART_EN, UART_RX_ENABLE | UART_TX_ENABLE, newrate);
 }
 
 // returns a true value when the UART
 //transmitter is ready to accept a character for transmission
 uint8_t uart1_txrdy(){
-    return U2STAbits.UTXBF;
+    if(BusyUART1())
+      return 0x00;
+    else
+      return 0x01;
 }
 
 //write a character to the UART
