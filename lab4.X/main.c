@@ -6,6 +6,7 @@
 #include <xc.h>
 #include <inttypes.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "uart1.h"
 #include "ztimer.h"
 

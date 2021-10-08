@@ -2,17 +2,17 @@
 #include <xc.h>
 #include <inttypes.h>
 #include "uart1.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <plib.h>
 
-
-
 void uart1_init(uint32_t baudrate) {
-  uint32_t out_rate = (0x02625A00/(0x00000010*baudrate))-1;
-  ANSELA = 0x000;
+  uint32_t newrate = (40000000/(16*baudrate))-1;
+  OpenUART1(UART_EN | UART_NO_PAR_8BIT, UART_RX_ENABLE | UART_TX_ENABLE, newrate);
   PPSInput(3, U1RX, RPA2);
   PPSOutput(1, RPA0, U1TX);
-  OpenUART1(UART_EN, UART_RX_ENABLE | UART_TX_ENABLE, out_rate);
-
+  
+/*
   ANSELA = 0x000;
   TRISA = 0xFF0;
   U1RXR = 0x0;
@@ -20,6 +20,7 @@ void uart1_init(uint32_t baudrate) {
   U1BRG = baudrate;
   U1STA = 0x1400; 
   U1MODE = 0x8000; 
+ * */
 }
 
 uint8_t uart1_txrdy() {
@@ -34,10 +35,10 @@ void uart1_txwrite(uint8_t c) {
 }
 
 void uart1_txwrite_str(char *c) {
-  char h = *c;
+  char j = *c;
   int i = 0;
-  for(; h != 0; i++, h = *(c + i)){
-      uart1_txwrite(h);
+  for(; j != 0; i++, j = *(c + i)){
+      uart1_txwrite(j);
       while(!uart1_txrdy());
   }
 }
