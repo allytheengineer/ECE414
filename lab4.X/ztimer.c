@@ -13,7 +13,7 @@
  * This module is implemented using Timer2 as a 16-bit counter and
  * assumes a 40MHz clock.
  */
-
+#define _SUPPRESS_PLIB_WARNING
 #include <xc.h>
 #include <plib.h>
 #include "ztimer.h"

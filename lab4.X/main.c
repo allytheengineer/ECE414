@@ -10,15 +10,15 @@
 #include "uart1.h"
 #include "ztimer.h"
 
-
+#define _SUPPRESS_PLIB_WARNING
 #define NUM_ITERATIONS 100000
 #define NUM_REPS 10
 
 uint8_t buffer[64];
 
 void main() {
-  uart1_init(19200);
-  uart1_txwrite_str("Test");
+  uart1_init(9600);
+  uart1_txwrite_str("Hello from Ally Phelan and Joe D'Amato!!!!!!!!!!!!!!!!!!!!!!abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg");
   uart1_txwrite(7);
   for(;;){
     while(!uart1_rxrdy());
@@ -34,18 +34,15 @@ void main() {
 
 
 
+
 /*
 void main()
 {
  uint32_t t1, t2;
  uint8_t buffer[64];
-
  uart1_init(9600);
  zTimerOn();
-
-
  uart1_txwrite_str("Performance Summary: Time per operation statistics\r\n");
-
  // Test multiplying bytes
  t1 = zTimerReadms();
  test_uint8_mult();
@@ -53,7 +50,6 @@ void main()
  // Print timing result. Doubles OK here. Not time critical code.
  sprintf(buffer, "UINT8 MULT: %.06f us per operation\r\n",(double)(t2-t1)/(double)NUM_ITERATIONS /(double)NUM_REPS*1000.0);
  uart1_txwrite_str(buffer);
-
  // Test multiplying bytes
  t1 = zTimerReadms();
  test_uint8_div();
@@ -61,7 +57,6 @@ void main()
  // Print timing result. Doubles OK here. Not time critical code.
  sprintf(buffer, "UINT8 DIV: %.06f us per operation\r\n",(double)(t2-t1)/(double)NUM_ITERATIONS /(double)NUM_REPS*1000.0);
  uart1_txwrite_str(buffer);
-
  // Test multiplying bytes
  t1 = zTimerReadms();
  test_uint8_add();
@@ -69,7 +64,6 @@ void main()
  // Print timing result. Doubles OK here. Not time critical code.
  sprintf(buffer, "UINT8 ADD: %.06f us per operation\r\n",(double)(t2-t1)/(double)NUM_ITERATIONS /(double)NUM_REPS*1000.0);
  uart1_txwrite_str(buffer);
-
  // Test multiplying bytes
  t1 = zTimerReadms();
  test_uint8_sub();
@@ -77,7 +71,6 @@ void main()
  // Print timing result. Doubles OK here. Not time critical code.
  sprintf(buffer, "UINT8 SUB: %.06f us per operation\r\n",(double)(t2-t1)/(double)NUM_ITERATIONS /(double)NUM_REPS*1000.0);
  uart1_txwrite_str(buffer);
-
  while (1); // When done, wait forever.
 }
  * */

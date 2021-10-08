@@ -1,7 +1,7 @@
 #include <xc.h>
 #include <inttypes.h>
 #include <stdio.h>
-
+#define _SUPPRESS_PLIB_WARNING
 //Module Includes Here
 
 #define NUM_ITERATIONS 100000
