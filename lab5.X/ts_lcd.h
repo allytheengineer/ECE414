@@ -11,8 +11,6 @@
 #include <plib.h>
 #include <inttypes.h>
 
-#define interp(*x,x1,x2,mx2,mx1)((((x-x1)(mx2-mx1))/(x2-x1)+mx1);
-
 //return true when display is pressed
 //two param shall be assigned the current position of the press on the display in LCD coordinates
 uint8_t ts_lcd_get_ts(uint16_t *x, uint16_t *y);
@@ -23,5 +21,5 @@ void ts_lcd_init();
 //touch makes cross hair
 void test_touch();
 
-#endif	/* TS_LCD_H */
 
+#endif	/* TS_LCD_H */

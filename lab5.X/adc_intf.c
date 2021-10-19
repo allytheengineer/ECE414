@@ -1,3 +1,4 @@
+#define _SUPPRESS_PLIB_WARNING
 #include "adc_intf.h"
 #include <plib.h>
 #include <xc.h>

@@ -1,4 +1,3 @@
-
 // Updated for PIC32 by Matthew Watkins
 
 // Touch screen library with X Y and Z (pressure) readings as well
@@ -7,7 +6,7 @@
 // Code under MIT License
 
 #include "TouchScreen.h"
-
+#define _SUPPRESS_PLIB_WARNING
 #include <plib.h>
 #include <xc.h>
 #include "adc_intf.h"
@@ -198,3 +197,4 @@ uint16_t pressure(void) {
     return (1023-(z2-z1));
   }
 }*/
+
