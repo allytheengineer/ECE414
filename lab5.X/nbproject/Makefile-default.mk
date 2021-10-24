@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Touchscreen.c adc_intf.c main.c glcdfont.c tft_gfx.c tft_master.c tsldc.c
+SOURCEFILES_QUOTED_IF_SPACED=Touchscreen.c adc_intf.c main.c glcdfont.c tft_gfx.c tft_master.c CALCFSM.c ts_ldc.c screen.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Touchscreen.o ${OBJECTDIR}/adc_intf.o ${OBJECTDIR}/main.o ${OBJECTDIR}/glcdfont.o ${OBJECTDIR}/tft_gfx.o ${OBJECTDIR}/tft_master.o ${OBJECTDIR}/tsldc.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Touchscreen.o.d ${OBJECTDIR}/adc_intf.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/glcdfont.o.d ${OBJECTDIR}/tft_gfx.o.d ${OBJECTDIR}/tft_master.o.d ${OBJECTDIR}/tsldc.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Touchscreen.o ${OBJECTDIR}/adc_intf.o ${OBJECTDIR}/main.o ${OBJECTDIR}/glcdfont.o ${OBJECTDIR}/tft_gfx.o ${OBJECTDIR}/tft_master.o ${OBJECTDIR}/CALCFSM.o ${OBJECTDIR}/ts_ldc.o ${OBJECTDIR}/screen.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Touchscreen.o.d ${OBJECTDIR}/adc_intf.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/glcdfont.o.d ${OBJECTDIR}/tft_gfx.o.d ${OBJECTDIR}/tft_master.o.d ${OBJECTDIR}/CALCFSM.o.d ${OBJECTDIR}/ts_ldc.o.d ${OBJECTDIR}/screen.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Touchscreen.o ${OBJECTDIR}/adc_intf.o ${OBJECTDIR}/main.o ${OBJECTDIR}/glcdfont.o ${OBJECTDIR}/tft_gfx.o ${OBJECTDIR}/tft_master.o ${OBJECTDIR}/tsldc.o
+OBJECTFILES=${OBJECTDIR}/Touchscreen.o ${OBJECTDIR}/adc_intf.o ${OBJECTDIR}/main.o ${OBJECTDIR}/glcdfont.o ${OBJECTDIR}/tft_gfx.o ${OBJECTDIR}/tft_master.o ${OBJECTDIR}/CALCFSM.o ${OBJECTDIR}/ts_ldc.o ${OBJECTDIR}/screen.o
 
 # Source Files
-SOURCEFILES=Touchscreen.c adc_intf.c main.c glcdfont.c tft_gfx.c tft_master.c tsldc.c
+SOURCEFILES=Touchscreen.c adc_intf.c main.c glcdfont.c tft_gfx.c tft_master.c CALCFSM.c ts_ldc.c screen.c
 
 
 
@@ -143,11 +143,23 @@ ${OBJECTDIR}/tft_master.o: tft_master.c  .generated_files/flags/default/eedbde0b
 	@${RM} ${OBJECTDIR}/tft_master.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tft_master.o.d" -o ${OBJECTDIR}/tft_master.o tft_master.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
-${OBJECTDIR}/tsldc.o: tsldc.c  .generated_files/flags/default/d356175ebb6db94862325aa2a86dc1005cff1a3a .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+${OBJECTDIR}/CALCFSM.o: CALCFSM.c  .generated_files/flags/default/a1db027ba10a0724811ccff8c37aa83c4ff29a16 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/tsldc.o.d 
-	@${RM} ${OBJECTDIR}/tsldc.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tsldc.o.d" -o ${OBJECTDIR}/tsldc.o tsldc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	@${RM} ${OBJECTDIR}/CALCFSM.o.d 
+	@${RM} ${OBJECTDIR}/CALCFSM.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/CALCFSM.o.d" -o ${OBJECTDIR}/CALCFSM.o CALCFSM.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/ts_ldc.o: ts_ldc.c  .generated_files/flags/default/502982c82051af9b997e4e77ff6959ca4257da48 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ts_ldc.o.d 
+	@${RM} ${OBJECTDIR}/ts_ldc.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ts_ldc.o.d" -o ${OBJECTDIR}/ts_ldc.o ts_ldc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/screen.o: screen.c  .generated_files/flags/default/170c9ec8fd48e07f89beae416961a7145e5ee05e .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/screen.o.d 
+	@${RM} ${OBJECTDIR}/screen.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/screen.o.d" -o ${OBJECTDIR}/screen.o screen.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
 else
 ${OBJECTDIR}/Touchscreen.o: Touchscreen.c  .generated_files/flags/default/166a969d576cf724e38f0649cd7ce02ef7d1f4a2 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
@@ -186,11 +198,23 @@ ${OBJECTDIR}/tft_master.o: tft_master.c  .generated_files/flags/default/37350384
 	@${RM} ${OBJECTDIR}/tft_master.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tft_master.o.d" -o ${OBJECTDIR}/tft_master.o tft_master.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
-${OBJECTDIR}/tsldc.o: tsldc.c  .generated_files/flags/default/dbd42106dd6a0e1d7695723ac272697b58d36ed7 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+${OBJECTDIR}/CALCFSM.o: CALCFSM.c  .generated_files/flags/default/f654e23d7028a6af56c152fb5a1dedc93df8582a .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/tsldc.o.d 
-	@${RM} ${OBJECTDIR}/tsldc.o 
-	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/tsldc.o.d" -o ${OBJECTDIR}/tsldc.o tsldc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	@${RM} ${OBJECTDIR}/CALCFSM.o.d 
+	@${RM} ${OBJECTDIR}/CALCFSM.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/CALCFSM.o.d" -o ${OBJECTDIR}/CALCFSM.o CALCFSM.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/ts_ldc.o: ts_ldc.c  .generated_files/flags/default/d7180d7922be2ab2af39fb9aaf1bcf88d7991fe3 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ts_ldc.o.d 
+	@${RM} ${OBJECTDIR}/ts_ldc.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/ts_ldc.o.d" -o ${OBJECTDIR}/ts_ldc.o ts_ldc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/screen.o: screen.c  .generated_files/flags/default/72ceec4e82ae42f7b3193afcb9f646a06b02e7d8 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/screen.o.d 
+	@${RM} ${OBJECTDIR}/screen.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/screen.o.d" -o ${OBJECTDIR}/screen.o screen.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
 endif
 

@@ -18,55 +18,46 @@
 
 
 int main(int argc, char** argv) {
-    char buffer[30];
-    int xPos;
-    int yPos;
-    int size = 10;
-    
-    SYSTEMConfigPerformance(PBCLK);
-    
-    configureADC();
-    
-    //initialize screen
-    tft_init_hw();
-    tft_begin();
-    tft_setRotation(3); 
-    tft_fillScreen(ILI9341_BLACK);  
-    
-   
-   
-        tft_setCursor(20, 100);
-        tft_setTextColor(ILI9341_WHITE);
-       
-        tft_writeString(buffer);
-        
+    static char buffer[30];
+    uint8_t press = 0;
+    ts_lcd_init();
+    draw_screen();
+    int8_t input = button_press(), x = 16;
+    int64_t calcAnswr;
     while(1){
-        //tft_fillScreen(ILI9341_BLACK);
-         
-        tft_setCursor(20, 100);
-        tft_setTextColor(ILI9341_WHITE); 
-        tft_setTextSize(2);
-
-        //erase old text
-        tft_setTextColor(ILI9341_BLACK);
-        tft_writeString(buffer);
-        
-        //erase old crosshair
-        tft_drawLine(xPos-size,yPos,xPos+size,yPos,ILI9341_BLACK);
-        tft_drawLine(xPos,yPos-size,xPos,yPos+size,ILI9341_BLACK);
+      test_touch();
+      /**
+      input = button_press();
+      if(screenPress() && press == 0){ // The screen was just released.
+        press = 1;
+        if(input >= 0){ // If there was a valid input.
+            x = input;
+        }
+      }
+      calcAnswr = tickFct_CALCULATOR(x);
+      x = 16;
+      if(!screenPress())
+        press = 0;
+      /*
+      if(pressed && !screenIsPressed()) // The screen was just released.
+        if(input >= 0) // If there was a valid input.
+            calcResult = tickFct_CALCULATOR(input);
       
-        
-        //tft_drawLine(p.x-size,p.y,p.x+size,p.y,ILI9341_WHITE);
-        //tft_drawLine(p.x,p.y-size,p.x,p.y+size,ILI9341_WHITE);
-        
-      
-        
-        tft_drawLine(xPos-size,yPos,xPos+size,yPos,ILI9341_BLACK);
-        tft_drawLine(xPos,yPos-size,xPos,yPos+size,ILI9341_BLACK);
-       //ts_lcd_get_ts(*xPos,*yPos);
-        delay_ms(100);
+      tft_fillRect(4, 4, 312, 48, ILI9341_WHITE);
+      tft_setTextSize(2);
+      tft_setCursor(37, 20);
+      tft_setTextColor(ILI9341_BLACK);
+      if(calcAnswr >= -1000)
+        sprintf(buffer, "%d", calcAnswr);
+      else if(calcAnswr==-1111)
+        sprintf(buffer,"ERROR");
+      else if(calcAnswr==-2222)
+        sprintf(buffer,"DIV0");
+      tft_writeString(buffer);
+      **/
+      delay_ms(20);
     }
-    return (EXIT_SUCCESS);     
+    return (EXIT_SUCCESS);
 }
 
 
