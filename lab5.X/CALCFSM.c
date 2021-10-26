@@ -19,7 +19,7 @@ int64_t tickFct_CALCULATOR(uint8_t btn) {
 
       case CALC_Num1:
          if(btn>=10 && btn<=13) // operator pressed?
-            CALC_State = CALC_Num2;
+            CALC_State = CALC_Op;
          else if(btn==14) //clr
             CALC_State = CALC_Init;
          else if((currentNum>0x10000000 && currentNum*10+btn < 0x10000000)) // too big
