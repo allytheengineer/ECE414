@@ -28,9 +28,9 @@ int main(int argc, char** argv) {
       test_touch();
       /**
       input = button_press();
-      if(screenPress() && press == 0){ // The screen was just released.
+      if(screenPress() && press == 0){ // Screen no longer pressed
         press = 1;
-        if(input >= 0){ // If there was a valid input.
+        if(input >= 0){ // Screen pressed
             x = input;
         }
       }
@@ -39,10 +39,9 @@ int main(int argc, char** argv) {
       if(!screenPress())
         press = 0;
       /*
-      if(pressed && !screenIsPressed()) // The screen was just released.
-        if(input >= 0) // If there was a valid input.
-            calcResult = tickFct_CALCULATOR(input);
-      
+      if(pressed && !screenPress()) // Screen no longer pressed
+        if(input >= 0) // Screen Pressed
+            calcResult = tickFct_CALCULATOR(input); 
       tft_fillRect(4, 4, 312, 48, ILI9341_WHITE);
       tft_setTextSize(2);
       tft_setCursor(37, 20);
