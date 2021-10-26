@@ -25,7 +25,7 @@ uint8_t ts_lcd_get_ts(uint16_t *x, uint16_t *y){
   p.y = 0;
   getPoint(&p);
   //interpolation
-  *x = 320-((float)(p.y-130)/ 800.0f)) *(320.0f);
+  *x = 320-((float)(p.y-130)/(800.0f))*(320.0f);
   *y = ((float)(p.x-180)/(680.0f))*(240.0f);
 }
 
