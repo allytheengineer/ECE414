@@ -5,6 +5,7 @@
 
 static enum CALC_States{CALC_SMStart, CALC_Init, CALC_Num1, CALC_Op, CALC_Num2, CALC_Solving, CALC_TooBig, CALC_Solved, CALC_Div0}CALC_State, NEXT_State;
 
+//tick fcn for clcfsm
 int64_t tickFct_CALCFSM(uint8_t btn) {
     static int32_t num, currentNum, op, newOp;
 
