@@ -1,0 +1,143 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L PIC32MX250F128B-V_SP:PIC32MX250F128B-V_SP U1
+U 1 1 612E68F1
+P 3900 2650
+F 0 "U1" H 3350 3917 50  0000 C CNN
+F 1 "PIC32MX250F128B-V_SP" H 3350 3826 50  0000 C CNN
+F 2 "DIP254P762X508-28" H 3900 2650 50  0001 L BNN
+F 3 "SPDIP-28 Microchip" H 3900 2650 50  0001 L BNN
+F 4 "PIC32MX250F128B-V/SP" H 3900 2650 50  0001 L BNN "Field4"
+F 5 "32 Bit MCU, 128KB Flash, 32KB RAM, 40 MHz, 28 Pin, 3 Comp, CTMU, RTCC, 28 SPDIP" H 3900 2650 50  0001 L BNN "Field5"
+F 6 "Microchip" H 3900 2650 50  0001 L BNN "Field6"
+F 7 "None" H 3900 2650 50  0001 L BNN "Field7"
+F 8 "Unavailable" H 3900 2650 50  0001 L BNN "Field8"
+	1    3900 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Touch:LCD_2_4 U?
+U 1 1 615CA360
+P 5750 5700
+F 0 "U?" H 5850 7565 50  0000 C CNN
+F 1 "LCD_2_4" H 5850 7474 50  0000 C CNN
+F 2 "" V 5050 6950 50  0001 C CNN
+F 3 "" V 5050 6950 50  0001 C CNN
+	1    5750 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 2150 4900 2150
+Wire Wire Line
+	4900 2150 4900 4400
+Wire Wire Line
+	4900 4400 5200 4400
+Wire Wire Line
+	4600 2450 4800 2450
+Wire Wire Line
+	4800 2450 4800 4500
+Wire Wire Line
+	4800 4500 5200 4500
+Wire Wire Line
+	2100 2650 1200 2650
+Wire Wire Line
+	1200 2650 1200 4700
+Wire Wire Line
+	1200 4700 5200 4700
+Wire Wire Line
+	2100 2550 1700 2550
+Wire Wire Line
+	1700 2550 1700 4800
+Wire Wire Line
+	1700 4800 5200 4800
+Wire Wire Line
+	2100 2750 1900 2750
+Wire Wire Line
+	1900 2750 1900 4900
+Wire Wire Line
+	1900 4900 5200 4900
+Wire Wire Line
+	2100 2350 750  2350
+Wire Wire Line
+	750  2350 750  5400
+Wire Wire Line
+	750  5400 5200 5400
+Wire Wire Line
+	2100 2450 1050 2450
+Wire Wire Line
+	1050 2450 1050 5100
+Wire Wire Line
+	1050 5100 5200 5100
+Wire Wire Line
+	2100 3150 1400 3150
+Wire Wire Line
+	1400 3150 1400 5300
+Wire Wire Line
+	1400 5300 5200 5300
+Wire Wire Line
+	2100 3350 1550 3350
+Wire Wire Line
+	1550 3350 1550 5200
+Wire Wire Line
+	1550 5200 5200 5200
+$Comp
+L power:Earth #PWR?
+U 1 1 615DE297
+P 5500 3150
+F 0 "#PWR?" H 5500 2900 50  0001 C CNN
+F 1 "Earth" H 5500 3000 50  0001 C CNN
+F 2 "" H 5500 3150 50  0001 C CNN
+F 3 "~" H 5500 3150 50  0001 C CNN
+	1    5500 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 3150 5500 3050
+Wire Wire Line
+	5500 3050 5050 3050
+Wire Wire Line
+	5050 3050 5050 4100
+Wire Wire Line
+	5050 4100 5200 4100
+$Comp
+L power:+3V0 #PWR?
+U 1 1 615DEF49
+P 4100 6050
+F 0 "#PWR?" H 4100 5900 50  0001 C CNN
+F 1 "+3V0" H 4115 6223 50  0000 C CNN
+F 2 "" H 4100 6050 50  0001 C CNN
+F 3 "" H 4100 6050 50  0001 C CNN
+	1    4100 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 6050 4800 6050
+Wire Wire Line
+	5200 5600 4800 5600
+Wire Wire Line
+	5200 5700 4800 5700
+Connection ~ 4800 5700
+Wire Wire Line
+	4800 5700 4800 5600
+Wire Wire Line
+	5200 5800 4800 5800
+Wire Wire Line
+	4800 5700 4800 5800
+Connection ~ 4800 5800
+Wire Wire Line
+	4800 5800 4800 6050
+$EndSCHEMATC
