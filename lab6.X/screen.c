@@ -1,57 +1,68 @@
-#define _SUPPRESS_PLIB_WARNING
 #include <xc.h>
 #include <inttypes.h>
-#include "ts_lcd.h"
-#include "TouchScreen.h"
+#include "screen.h"
 #include "tft_master.h"
 #include "tft_gfx.h"
 
-#define NUM_BOXES 20
-#define Y_DIST 46
-#define X_DIST 79
+#define BUF_SIZE 30
 
-int8_t button_press(){
-  uint8_t result[16] = {7, 8, 9, 10, 4, 5, 6, 11, 1, 2, 3, 12, 0, 14, 15, 13};
-  if(screenIsPressed()){
-      uint16_t displayX, displayY;
-      ts_lcd_get_ts(&displayX, &displayY);
-      if(displayY < 54){
-        return -1;
-      }
-      displayY -= 54;
-      int y = 0;
-      for(; y < 4; y++){
-        int x = 0;
-        for(; x < 4; x++){
-          if(displayX >= (x*X_DIST) && displayX <= (x*X_DIST) + 79 && displayY >= (y*Y_DIST) && displayY <= (y*Y_DIST) + 46){
-             return result[(x + y * 4)];
-          }
-        }
-      }
-  }
-  return -1;
+uint16_t ts;
+uint16_t UARTHead = 0, xPosition = 10;
+char UARTCommand[BUF_SIZE];
+char buffer2[BUF_SIZE];
+
+void setTargetSpeed(uint16_t targetSpeed){
+    ts = targetSpeed;
+    tft_fillRect(10, 10, 300, 66, ILI9341_WHITE);
+
 }
 
-void draw_buttons(){
-  uint16_t xTextOffset = 33, yTextOffset = 16;
-  char buttonText[NUM_BOXES] = {'7', '8', '9', '+',
-                                '4', '5', '6', '-',
-                                '1', '2', '3', '*',
-                                '0', 'C', '=', '/',};
-  uint16_t button_color[NUM_BOXES] = {ILI9341_LIGHTGREY, ILI9341_LIGHTGREY, ILI9341_LIGHTGREY, ILI9341_DARKCYAN,
-                              ILI9341_LIGHTGREY, ILI9341_LIGHTGREY, ILI9341_LIGHTGREY, ILI9341_DARKCYAN,
-                              ILI9341_LIGHTGREY, ILI9341_LIGHTGREY, ILI9341_LIGHTGREY, ILI9341_DARKCYAN,
-                              ILI9341_LIGHTGREY, ILI9341_MAROON, ILI9341_OLIVE, ILI9341_DARKCYAN};
-  tft_fillRoundRect(4, 4, 312, 48, 4, ILI9341_WHITE);
+void setNextUARTChar(char c){
+  UARTCommand[UARTHead++] = c;
+
+  if(c == '\r'){
+    UARTHead = 0;
+    tft_setTextColor(ILI9341_WHITE);
+    tft_setCursor(16, 38);
+    tft_writeString(buffer2);
+    uint16_t i;
+    for( i=0; i < BUF_SIZE; i++)
+      buffer2[i] = ' ';
+  }
+}
+
+void updateDisplayText(uint16_t currentSpeed){
+  static char buffer[BUF_SIZE];
+  static uint16_t cs;
   tft_setTextSize(2);
-  int y = 0;
-  for(; y < 4; y++){
-    int x = 0;
-    for(; x < 4; x++){
-      tft_fillRoundRect(4+(x*X_DIST), 56+(y*Y_DIST), 75, 42, 10, button_color[x+y*4]);
-      tft_setTextColor(ILI9341_BLACK);
-      tft_setCursor(4+(x*X_DIST)+xTextOffset,56+(y*Y_DIST)+yTextOffset);
-      tft_write(buttonText[x + y * 4]);
+  tft_setTextColor(ILI9341_WHITE);
+  tft_setCursor(16, 16);
+  sprintf(buffer, "TS: %d,   CS: %d", ts, cs);
+  tft_writeString(buffer);
+  tft_setTextColor(ILI9341_BLACK);
+  tft_setCursor(16, 16);
+  sprintf(buffer, "TS: %d,   CS: %d", ts, currentSpeed);
+  tft_writeString(buffer);
+  cs = currentSpeed;
+  tft_setTextColor(ILI9341_WHITE);
+  tft_setCursor(16, 38);
+  tft_writeString(buffer2);
+  int16_t i;
+  for(i = 0; i < UARTHead; i++){
+    buffer2[i] = UARTCommand[i];
+  }
+  tft_setTextColor(ILI9341_BLACK);
+  tft_setCursor(16, 38);
+  tft_writeString(buffer2);
+}
+
+void updateDisplayGraphics(uint16_t currentSpeed){
+  if(currentSpeed < 3000){
+    tft_drawPixel(xPosition, 229 - (ts / 20), ILI9341_GREEN);
+    tft_drawPixel(xPosition++, 229 - (currentSpeed / 20), ILI9341_RED);
+    if(xPosition >= 310){
+        tft_fillRect(10, 80, 300, 150, ILI9341_BLACK);
+        xPosition = 10;
     }
   }
 }

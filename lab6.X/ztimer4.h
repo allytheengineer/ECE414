@@ -6,8 +6,6 @@
  * @Last modified time: 2020-11-03T15:06:21-05:00
  */
 
-
-
 /*
  * File:   ztimer.h
  * Author: nestorj
