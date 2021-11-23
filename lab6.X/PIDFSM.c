@@ -7,7 +7,7 @@ static enum PID_STATES { PID_SMStart, PID_Init, PID_Ctrl} PID_STATE;
   int16_t Ki;
   int16_t Kd;
 
-uint16_t tickFct_PID_SM(int16_t desired, int16_t actual) {
+uint16_t tickFct_PIDFSM(int16_t desired, int16_t actual) {
   static int32_t actuator;
   static int32_t prev;
   int32_t error;

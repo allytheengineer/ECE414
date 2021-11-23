@@ -13,7 +13,7 @@ char buffer2[BUF_SIZE];
 
 void setTargetSpeed(uint16_t targetSpeed){
     ts = targetSpeed;
-    tft_fillRect(10, 10, 300, 66, ILI9341_WHITE);
+    tft_fillRect(10, 10, 300, 66, ILI9341_BLACK);
 
 }
 
@@ -39,7 +39,7 @@ void updateDisplayText(uint16_t currentSpeed){
   tft_setCursor(16, 16);
   sprintf(buffer, "TS: %d,   CS: %d", ts, cs);
   tft_writeString(buffer);
-  tft_setTextColor(ILI9341_BLACK);
+  tft_setTextColor(ILI9341_WHITE);
   tft_setCursor(16, 16);
   sprintf(buffer, "TS: %d,   CS: %d", ts, currentSpeed);
   tft_writeString(buffer);

@@ -18,7 +18,8 @@ int main(int argc, char** argv) {
   uint16_t rpm;
   uint16_t ta1, ta2, tb1, tb2; // Timervariables
   uint16_t targetSpeed = 1000;
-  char buffer[BUF_SIZE], inputBuffer[BUF_SIZE];
+  char buffer[BUF_SIZE];
+  //inputBuffer[BUF_SIZE];
   uint16_t bufferPosition = 0;
 
   oc1_init_plib(0x4444); // Output compare setup.
@@ -42,9 +43,9 @@ int main(int argc, char** argv) {
   PORTSetPinsDigitalOut(IOPORT_B, BIT_15);
   PORTSetBits(IOPORT_B, BIT_15);
 
-  uint16_t temp = 0, temp2 = 0, temp3 = 0;
+  //uint16_t temp = 0, temp2 = 0, temp3 = 0;
 
-  for(;;){
+  while(1){
     ta2 = tb2 = timer1_read();
     char c, command;
     uint16_t inputValue;
@@ -68,7 +69,6 @@ int main(int argc, char** argv) {
             targetSpeed = inputValue;
             setTargetSpeed(targetSpeed);
         }
-
         if(command == 'p')
           setKp(inputValue);
         if(command == 'i')
@@ -80,16 +80,13 @@ int main(int argc, char** argv) {
 
     if (timer1_elapsed_ms(ta1, ta2) > 100) { // Update text on the display.
       updateDisplayText(rpm);
-
-      uint16_t newSpeed = tickFct_PID_SM((int16_t)targetSpeed, (int16_t)rpm);
+      uint16_t newSpeed = tickFct_PIDFSM((int16_t)targetSpeed, (int16_t)rpm);
       SetDCOC1PWM(newSpeed);
-
       ta1 = ta2;
     }
 
     if (timer1_elapsed_ms(tb1, tb2) > 10) { // Update graphical speed information on the display.
       updateDisplayGraphics(rpm);
-
       tb1 = tb2;
     }
 
