@@ -38,7 +38,6 @@ uint8_t uart1_rxrdy() {
   return DataRdyUART1();
 }
 
-
 uint8_t uart1_rxread() {
     return ReadUART1();
 }
