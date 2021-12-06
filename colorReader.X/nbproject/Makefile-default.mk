@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=COLORFSM.c matching.c audio.c timer1.c
+SOURCEFILES_QUOTED_IF_SPACED=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/COLORFSM.o.d ${OBJECTDIR}/matching.o.d ${OBJECTDIR}/audio.o.d ${OBJECTDIR}/timer1.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/COLORFSM.o.d ${OBJECTDIR}/matching.o.d ${OBJECTDIR}/audio.o.d ${OBJECTDIR}/timer1.o.d ${OBJECTDIR}/rgbsensor.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o
+OBJECTFILES=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o
 
 # Source Files
-SOURCEFILES=COLORFSM.c matching.c audio.c timer1.c
+SOURCEFILES=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c
 
 
 
@@ -131,6 +131,12 @@ ${OBJECTDIR}/timer1.o: timer1.c  .generated_files/flags/default/dbf4331ccd6adeab
 	@${RM} ${OBJECTDIR}/timer1.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer1.o.d" -o ${OBJECTDIR}/timer1.o timer1.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
+${OBJECTDIR}/rgbsensor.o: rgbsensor.c  .generated_files/flags/default/51211498ac994a36cbfc529bace6140400f06757 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rgbsensor.o.d 
+	@${RM} ${OBJECTDIR}/rgbsensor.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/rgbsensor.o.d" -o ${OBJECTDIR}/rgbsensor.o rgbsensor.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
 else
 ${OBJECTDIR}/COLORFSM.o: COLORFSM.c  .generated_files/flags/default/300492a6885a4c5648a84c45991c8544eb1ace71 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
 	@${MKDIR} "${OBJECTDIR}" 
@@ -155,6 +161,12 @@ ${OBJECTDIR}/timer1.o: timer1.c  .generated_files/flags/default/f7def28027c8b16e
 	@${RM} ${OBJECTDIR}/timer1.o.d 
 	@${RM} ${OBJECTDIR}/timer1.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/timer1.o.d" -o ${OBJECTDIR}/timer1.o timer1.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/rgbsensor.o: rgbsensor.c  .generated_files/flags/default/90737ac93d277701f3bb43875926fcc05695c3ca .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rgbsensor.o.d 
+	@${RM} ${OBJECTDIR}/rgbsensor.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/rgbsensor.o.d" -o ${OBJECTDIR}/rgbsensor.o rgbsensor.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
 endif
 

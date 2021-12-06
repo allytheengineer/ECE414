@@ -64,10 +64,10 @@ uint16_t tickFct_COLORFSM() {
        case COLOR_Speak:
            //audioOut(currentColor);  //function should assign a color num to an audio file
            if(looking4Match==1){
-               if(testMatch()==1){
+               if(testMatch(color1, color2)==1){
                //audioOut(yMatch);
                }
-               else if(testMatch()==0){
+               else if(testMatch(color1, color2)==0){
                    //audioOut(nMatch);
                }
            }

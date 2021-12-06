@@ -8,6 +8,7 @@
       <itemPath>timer1.h</itemPath>
       <itemPath>COLORFSM.h</itemPath>
       <itemPath>matching.h</itemPath>
+      <itemPath>audio.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,6 +21,7 @@
       <itemPath>matching.c</itemPath>
       <itemPath>audio.c</itemPath>
       <itemPath>timer1.c</itemPath>
+      <itemPath>rgbsensor.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

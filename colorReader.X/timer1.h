@@ -15,5 +15,7 @@ extern uint16_t timer1_read();
 
 extern uint16_t timer1_elapsed_ms(uint16_t t1, uint16_t t2 );
 
+void timer1_ms_delay(int x);
+
 #endif
 

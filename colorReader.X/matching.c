@@ -3,19 +3,13 @@
 
 /* Colors are as follows:
  * 1 red
- * 2 plum (red/purple)
- * 3 purple
- * 4 violet (purple/blue)
- * 5 blue
- * 6 aqua (blue/green)
- * 7 green
- * 8 lime (green/yellow)
- * 9 yellow
- * 10 gold (yellow/orange)
- * 11 orange
- * 12 rust (orange/red)
- * 13 white
- * 14 black
+ * 2 purple
+ * 3 blue
+ * 4 green
+ * 5 yellow
+ * 6 orange
+ * 7 white
+ * 8 black
  */
 
 uint8_t testMatch(char color1, char color2){
