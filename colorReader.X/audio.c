@@ -57,6 +57,5 @@ void audioOut(int sound) {
             PORTBbits.RB2 = 1;
             break;
     }
-    PORTB =0x0000;
     timer1_ms_delay(250);  
 }
