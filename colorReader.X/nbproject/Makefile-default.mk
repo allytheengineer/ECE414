@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c
+SOURCEFILES_QUOTED_IF_SPACED=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c test.c button.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/COLORFSM.o.d ${OBJECTDIR}/matching.o.d ${OBJECTDIR}/audio.o.d ${OBJECTDIR}/timer1.o.d ${OBJECTDIR}/rgbsensor.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o ${OBJECTDIR}/test.o ${OBJECTDIR}/button.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/COLORFSM.o.d ${OBJECTDIR}/matching.o.d ${OBJECTDIR}/audio.o.d ${OBJECTDIR}/timer1.o.d ${OBJECTDIR}/rgbsensor.o.d ${OBJECTDIR}/test.o.d ${OBJECTDIR}/button.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o
+OBJECTFILES=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o ${OBJECTDIR}/test.o ${OBJECTDIR}/button.o
 
 # Source Files
-SOURCEFILES=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c
+SOURCEFILES=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c test.c button.c
 
 
 
@@ -137,6 +137,18 @@ ${OBJECTDIR}/rgbsensor.o: rgbsensor.c  .generated_files/flags/default/51211498ac
 	@${RM} ${OBJECTDIR}/rgbsensor.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/rgbsensor.o.d" -o ${OBJECTDIR}/rgbsensor.o rgbsensor.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
+${OBJECTDIR}/test.o: test.c  .generated_files/flags/default/170d12cd62f0ef64778b0e750f3ff75a81b0d23c .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/test.o.d 
+	@${RM} ${OBJECTDIR}/test.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/test.o.d" -o ${OBJECTDIR}/test.o test.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/button.o: button.c  .generated_files/flags/default/aa60c68c72276ec46f62b93ed1d1962c9f05b489 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/button.o.d 
+	@${RM} ${OBJECTDIR}/button.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/button.o.d" -o ${OBJECTDIR}/button.o button.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
 else
 ${OBJECTDIR}/COLORFSM.o: COLORFSM.c  .generated_files/flags/default/300492a6885a4c5648a84c45991c8544eb1ace71 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
 	@${MKDIR} "${OBJECTDIR}" 
@@ -167,6 +179,18 @@ ${OBJECTDIR}/rgbsensor.o: rgbsensor.c  .generated_files/flags/default/90737ac93d
 	@${RM} ${OBJECTDIR}/rgbsensor.o.d 
 	@${RM} ${OBJECTDIR}/rgbsensor.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/rgbsensor.o.d" -o ${OBJECTDIR}/rgbsensor.o rgbsensor.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/test.o: test.c  .generated_files/flags/default/b0f6a80861da4033e34ceac346b94a5f70a4fe .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/test.o.d 
+	@${RM} ${OBJECTDIR}/test.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/test.o.d" -o ${OBJECTDIR}/test.o test.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
+	
+${OBJECTDIR}/button.o: button.c  .generated_files/flags/default/b6dd8674cfba90124038e587d1bedb9419702065 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/button.o.d 
+	@${RM} ${OBJECTDIR}/button.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/button.o.d" -o ${OBJECTDIR}/button.o button.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)    
 	
 endif
 
