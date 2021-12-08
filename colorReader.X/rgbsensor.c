@@ -5,7 +5,11 @@
 
 
 uint8_t rgb_int(){
-    
+    ANSELB=0;
+    TRISB=0x0000;
+    LATB=0x0000;
+ #define SDA PORTBbits.RB2
+ #define SCL PORTBbits.RB3
 }
 
 
