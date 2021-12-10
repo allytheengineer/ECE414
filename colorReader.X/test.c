@@ -23,6 +23,13 @@ int main(int argc, char** argv) {
         if(out==1){
        uint16_t red;
        red= readred();    
+       if(red>1){
+       PORTBbits.RB2 = 1;   
+       }
+       else 
+       {
+        PORTBbits.RB11 = 1; // Sound 7 (black)    
+       }
         }
         }
     }
