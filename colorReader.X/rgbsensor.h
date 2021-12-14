@@ -8,7 +8,11 @@
 #ifndef RGBSENSOR_H
 #define	RGBSENSOR_H
 
-uint8_t rgbint();
+void porta_in_init();
+
+uint8_t porta_checkC();
+
+uint8_t porta_checkM();
 
 uint8_t readdata(char address);
 
