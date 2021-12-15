@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c test.c button.c
+SOURCEFILES_QUOTED_IF_SPACED=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c test.c button.c ../lab4.X/uart1.c color.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o ${OBJECTDIR}/test.o ${OBJECTDIR}/button.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/COLORFSM.o.d ${OBJECTDIR}/matching.o.d ${OBJECTDIR}/audio.o.d ${OBJECTDIR}/timer1.o.d ${OBJECTDIR}/rgbsensor.o.d ${OBJECTDIR}/test.o.d ${OBJECTDIR}/button.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o ${OBJECTDIR}/test.o ${OBJECTDIR}/button.o ${OBJECTDIR}/_ext/1026128992/uart1.o ${OBJECTDIR}/color.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/COLORFSM.o.d ${OBJECTDIR}/matching.o.d ${OBJECTDIR}/audio.o.d ${OBJECTDIR}/timer1.o.d ${OBJECTDIR}/rgbsensor.o.d ${OBJECTDIR}/test.o.d ${OBJECTDIR}/button.o.d ${OBJECTDIR}/_ext/1026128992/uart1.o.d ${OBJECTDIR}/color.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o ${OBJECTDIR}/test.o ${OBJECTDIR}/button.o
+OBJECTFILES=${OBJECTDIR}/COLORFSM.o ${OBJECTDIR}/matching.o ${OBJECTDIR}/audio.o ${OBJECTDIR}/timer1.o ${OBJECTDIR}/rgbsensor.o ${OBJECTDIR}/test.o ${OBJECTDIR}/button.o ${OBJECTDIR}/_ext/1026128992/uart1.o ${OBJECTDIR}/color.o
 
 # Source Files
-SOURCEFILES=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c test.c button.c
+SOURCEFILES=COLORFSM.c matching.c audio.c timer1.c rgbsensor.c test.c button.c ../lab4.X/uart1.c color.c
 
 
 
@@ -149,6 +149,18 @@ ${OBJECTDIR}/button.o: button.c  .generated_files/flags/default/d12ac92dc4542c6d
 	@${RM} ${OBJECTDIR}/button.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/button.o.d" -o ${OBJECTDIR}/button.o button.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -D_SUPPRESS_PLIB_WARNING   
 	
+${OBJECTDIR}/_ext/1026128992/uart1.o: ../lab4.X/uart1.c  .generated_files/flags/default/5d923125dad43f68bb29135ad71f4bd2b83ff637 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}/_ext/1026128992" 
+	@${RM} ${OBJECTDIR}/_ext/1026128992/uart1.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1026128992/uart1.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1026128992/uart1.o.d" -o ${OBJECTDIR}/_ext/1026128992/uart1.o ../lab4.X/uart1.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -D_SUPPRESS_PLIB_WARNING   
+	
+${OBJECTDIR}/color.o: color.c  .generated_files/flags/default/4fedc01993a0eac9f6de6e6e62e70d1ed5cb13b3 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/color.o.d 
+	@${RM} ${OBJECTDIR}/color.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/color.o.d" -o ${OBJECTDIR}/color.o color.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -D_SUPPRESS_PLIB_WARNING   
+	
 else
 ${OBJECTDIR}/COLORFSM.o: COLORFSM.c  .generated_files/flags/default/10b9102a2c4b74d036da4cfa5a057c74b972e57d .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
 	@${MKDIR} "${OBJECTDIR}" 
@@ -191,6 +203,18 @@ ${OBJECTDIR}/button.o: button.c  .generated_files/flags/default/bec156c77bc1d01a
 	@${RM} ${OBJECTDIR}/button.o.d 
 	@${RM} ${OBJECTDIR}/button.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/button.o.d" -o ${OBJECTDIR}/button.o button.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -D_SUPPRESS_PLIB_WARNING   
+	
+${OBJECTDIR}/_ext/1026128992/uart1.o: ../lab4.X/uart1.c  .generated_files/flags/default/941bd3213160f79e5dfb3632e973eaa2a15d8e5b .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}/_ext/1026128992" 
+	@${RM} ${OBJECTDIR}/_ext/1026128992/uart1.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1026128992/uart1.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/_ext/1026128992/uart1.o.d" -o ${OBJECTDIR}/_ext/1026128992/uart1.o ../lab4.X/uart1.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -D_SUPPRESS_PLIB_WARNING   
+	
+${OBJECTDIR}/color.o: color.c  .generated_files/flags/default/5148a17122828c740ca7af4b63ab39c05f3f7233 .generated_files/flags/default/c9ab9a848ec860c15d50c34be9dd107a6274ab00
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/color.o.d 
+	@${RM} ${OBJECTDIR}/color.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/color.o.d" -o ${OBJECTDIR}/color.o color.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -D_SUPPRESS_PLIB_WARNING   
 	
 endif
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/colorReader.X.production.elf">                 
+  <executable name="dist/default/debug/colorReader.X.debug.elf">                 
     <memory name="program">                 
       <units>bytes</units>                 
       <length>132240</length>                 
-      <used>5660</used>                     
-      <free>126580</free>                     
+      <used>5668</used>                     
+      <free>126572</free>                     
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 
-      <length>32768</length>                 
-      <used>28</used>                     
-      <free>32740</free>                     
+      <length>33280</length>                 
+      <used>1052</used>                     
+      <free>32228</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

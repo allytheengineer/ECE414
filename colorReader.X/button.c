@@ -1,5 +1,5 @@
 #include <inttypes.h>
-
+#include <xc.h>
 
 enum L_States {B_N, B_MP, B_P, B_MNP} L_State;
 extern int out;

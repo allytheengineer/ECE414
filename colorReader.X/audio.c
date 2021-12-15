@@ -1,7 +1,7 @@
 #include "audio.h"
 #include "timer1.h"
 #include <plib.h>
-
+#include <xc.h>
 
 
 // Sound 0 (red)
@@ -57,5 +57,5 @@ void audioOut(int sound) {
             PORTBbits.RB2 = 0;
             break;
     }
-    timer1_ms_delay(250);  
+    //timer1_ms_delay(250);  
 }

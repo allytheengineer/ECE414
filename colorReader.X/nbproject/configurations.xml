@@ -11,6 +11,8 @@
       <itemPath>audio.h</itemPath>
       <itemPath>rgbsensor.h</itemPath>
       <itemPath>button.h</itemPath>
+      <itemPath>uart1.h</itemPath>
+      <itemPath>color.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -26,6 +28,8 @@
       <itemPath>rgbsensor.c</itemPath>
       <itemPath>test.c</itemPath>
       <itemPath>button.c</itemPath>
+      <itemPath>../lab4.X/uart1.c</itemPath>
+      <itemPath>color.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -33,6 +37,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../lab4.X</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -219,6 +226,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
