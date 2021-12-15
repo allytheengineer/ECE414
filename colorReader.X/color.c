@@ -2,7 +2,7 @@
 #include <xc.h>
 #include <inttypes.h>
 
-int color(uint8_t r, uint8_t b, uint8_t g ){
+int color(uint16_t r, uint16_t b, uint16_t g ){
  
     if((r==b==g)&r==255){
      return 7;     

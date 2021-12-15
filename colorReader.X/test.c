@@ -24,30 +24,14 @@ int out;
 int main(int argc, char** argv) {
 init_sounds();
 uart1_init(9600);
-uint8_t red=0;
-uint8_t blue=0;
-uint8_t green=0;
-int i=0;
-if(i==0){
-    //while(!uart1_rxrdy());
-   //red = uart1_rxread();
-    red=255;
-   i++;
+uint16_t red=0;
+uint16_t blue=0;
+uint16_t green=0;
+while(1){
+red=readred();
+blue=readblue();
+green=readgreen();
+audioOut(color(red,blue,green));
 }
-if(i==1){
-   // while(!uart1_rxrdy());
-   //green = uart1_rxread();
-    green=255;
-   i++;
-}
-if(i==2){
-    //while(!uart1_rxrdy());
-   //blue = uart1_rxread();
-    blue=255;
-   i++;
-}
-
- audioOut(color(red,blue,green));
- i=0;
 }
 
