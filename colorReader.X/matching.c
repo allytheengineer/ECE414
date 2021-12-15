@@ -14,10 +14,10 @@
 
 uint8_t testMatch(char color1, char color2){
     if(color1==color2){
-        return 1;
+        return 8;
     }
     else{
-        return 0;
+        return 9;
     }
 }
 

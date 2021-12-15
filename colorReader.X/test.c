@@ -20,18 +20,35 @@
 #pragma config FWDTEN = OFF, JTAGEN = OFF, FSOSCEN = OFF
 
 
-int out;
-int main(int argc, char** argv) {
+int out=0;
+int out2=0;
+int main() {
 init_sounds();
-uart1_init(9600);
-uint16_t red=0;
-uint16_t blue=0;
-uint16_t green=0;
+
+uint16_t color1;
+uint16_t color2;
+uint16_t red1=0;
+uint16_t blue1=0;
+uint16_t green1=0;
+uint16_t red2=0;
+uint16_t blue2=0;
+uint16_t green2=0;
 while(1){
-red=readred();
-blue=readblue();
-green=readgreen();
-audioOut(color(red,blue,green));
+    out=PORTAbits.RA1;
+    out2=PORTAbits.RA2;        
+    if(out){
+red1=readred();
+blue1=readblue();
+green1=readgreen();
+ color1= color(red1,blue1,green1);
+}
+    if(out2){
+  red2=readred();
+blue2=readblue();
+green2=readgreen();
+color2= color(red2,blue2,green2);      
+audioOut(testMatch(color1,color2));        
+    }
 }
 }
 
